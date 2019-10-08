@@ -5,7 +5,7 @@
 Schema defines what eWay-CRM data will be available in the template. eWay-CRM exports all available data from the appropriate
 items. If you have custom fields you will have to create custom schema and add required custom fields there.
 
-See our schema for [Invoices](XsltTransformations/WordprocessingML/Templates/Invoice/Invoice.xsd).
+See our schema for [Invoices](Templates/Invoice/Invoice.xsd).
 If you for example have a custom field af_14 on Bookkeeping module, you may modify schema like this:
 
 ```xml
