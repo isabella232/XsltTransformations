@@ -10,8 +10,6 @@
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="AccountingCaseDate" type="xs:string" minOccurs="0" />
         <xs:element name="Active" type="xs:string" minOccurs="0" />
-        <xs:element name="af_348" type="xs:string" minOccurs="0" />
-        <xs:element name="af_657" type="xs:string" minOccurs="0" />
         <xs:element name="CreatedByGUID" type="xs:string" minOccurs="0" />
         <xs:element name="CurrencyEn" type="xs:string" minOccurs="0" />
         <xs:element name="EffectiveFrom" type="xs:string" minOccurs="0" />
