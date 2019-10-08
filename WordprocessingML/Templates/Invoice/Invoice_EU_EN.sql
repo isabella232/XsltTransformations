@@ -2639,7 +2639,7 @@ BEGIN
 END
 
 DECLARE @AdminGUID UNIQUEIDENTIFIER;
-	SET @AdminGUID  = (SELECT ItemGUID FROM EWD_Users WHERE UserName = 'Admin');
+	SET @AdminGUID  = (SELECT ItemGUID FROM EWD_Users WHERE UserName = 'admin');
 
 DECLARE @ChangedTime DATETIME;
 	SET @ChangedTime = GETDATE();
