@@ -100,7 +100,7 @@ Make sure that elements that will be replaced by values are filled with color.
 If it has white background move focus after the tag end and press space to fix the format. After the background color gets
 applied you can remove the space.
 
-![element-before-fix](element-after-fix.png)
+![element-before-fix](Images/element-after-fix.png)
 
 ## Publish template
 
