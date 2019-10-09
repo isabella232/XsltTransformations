@@ -97,7 +97,7 @@ Make sure that elements that will be replaced by values are filled with color.
 
 ![element-before-fix](Images/element-before-fix.png)
 
-If it has white background move focus after the tag end and press space to fix the format. After the background color gets
+If it has white background move focus after the tag end (in this case MyCompanyName) and press space to fix the format. After the background color gets
 applied you can remove the space.
 
 ![element-before-fix](Images/element-after-fix.png)
@@ -107,7 +107,7 @@ applied you can remove the space.
 As soon as the template is finished you have to publish it to eWay-CRM.
 
 You need to generate SQL script that has to be executed against eWay-CRM server database. To generate the template
-use our **Wml2Ew.exe** utility. See [transformation.bat](Templates/Invoice/transformation.bat) for Invoices.
+use our **Wml2Ew.exe** utility. See [transform.bat](Templates/Invoice/transform.bat) for Invoices.
 
 **Wml2Ew.exe** has those parameters in the following order:
 * Path to the template document
