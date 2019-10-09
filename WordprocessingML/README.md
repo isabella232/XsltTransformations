@@ -115,12 +115,12 @@ use our **Wml2Ew.exe** utility. See [transform.bat](Templates/Invoice/transform.
 * Path to the template document
 * XML Namespace from the schema (eg. urn:eway:document-schemas:MyInvoice)
 * Name of the template that will be displayed in eWay-CRM
-* FolderName in which will be the template available
-  * **Carts** - Bookkeeping
+* [FolderName](https://github.com/eway-crm/php-lib/blob/master/FolderNames.md) in which will be the template available
+  * **Carts**
   * **Companies**
   * **Contacts**
   * **Projects**
-  * **Leads** - Deals
+  * **Leads**
 * Language in two letter format. Default is en.
   * **en**
   * **cs**
