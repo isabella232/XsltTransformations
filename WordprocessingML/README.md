@@ -47,19 +47,19 @@ represent other related items which also have own child elements. Common items a
   * **MyCompanyZip**
 
 Based on exported item type, there are some additional elements available:
-* Bookkeeping (Carts)
+* **Bookkeeping** (Carts)
   * **Customer**
   * **ContactPerson**
   * **SuperiorItem**
 
-* Contacts
+* **Contacts**
   * **Company**
 
-* Deals (Leads)
+* **Deals** (Leads)
   * **Customer**
   * **ContactPerson**
 
-* Projects
+* **Projects**
   * **Customer**
   * **ContactPerson**
   * **Supervisor**
@@ -71,31 +71,31 @@ Open Word 2003 and create a new empty document.
 
 Go to **Tools** and click **Templates and Add-Ins...** and add the MyInvoice schema that was mentioned before.
 
-![templates-addins](templates-addins.png)
+![templates-addins](Images/templates-addins.png)
 
 In **XML Options** check these options:
 * Validate document against attached schemas
 * Ignore mixed content
 * Show advanced XML error messages
 
-![xml-options](xml-options.png)
+![xml-options](Images/xml-options.png)
 
 After you add schema to the document, XML Structure panel will appear on the right:
 
-![element](element.png)
+![element](Images/element.png)
 
 Click on the element available (in this case Proposal) and apply it to the whole document:
 
-![apply-to-entire-document](apply-to-entire-document.png)
+![apply-to-entire-document](Images/apply-to-entire-document.png)
 
 In the document select text that you want to replace by data from eWay-CRM. In the right pane select the appropriate
 element.
 
-![invoice](invoice.png)
+![invoice](Images/invoice.png)
 
 Make sure that elements that will be replaced by values are filled with color.
 
-![element-before-fix](element-before-fix.png)
+![element-before-fix](Images/element-before-fix.png)
 
 If it has white background move focus after the tag end and press space to fix the format. After the background color gets
 applied you can remove the space.
@@ -133,4 +133,4 @@ After you run the **Wml2Ew.exe** utility a SQL file will be created with the sam
 
 As soon as you execute the SQL script on the eWay-CRM server database users should be able to [see the template in eWay-CRM](https://kb.eway-crm.com/documentation/3-description/3-6-integration-with-microsoft-office/3-6-2-microsoft-word-and-excel/data-export-into-ms-word).
 
-![export-to-word](export-to-word.png)
+![export-to-word](Images/export-to-word.png)
