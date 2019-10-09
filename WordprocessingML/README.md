@@ -65,6 +65,8 @@ Based on exported item type, there are some additional elements available:
   * **Supervisor**
   * **SuperiorProject**
 
+Default schemas are available [here](Schemas/).
+
 ## Create template
 
 Open Word 2003 and create a new empty document.
