@@ -236,6 +236,8 @@
               <xs:element name="MyCompanyStreet" type="xs:string" minOccurs="0" />
               <xs:element name="MyCompanyVatNumber" type="xs:string" minOccurs="0" />
               <xs:element name="MyCompanyZip" type="xs:string" minOccurs="0" />
+              <xs:element name="MyCompanyIDVAT" type="xs:string" minOccurs="0" />
+              <xs:element name="MyCompanyRegister" type="xs:string" minOccurs="0" />
             </xs:choice>
           </xs:complexType>
         </xs:element>
