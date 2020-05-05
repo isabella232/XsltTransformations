@@ -4,6 +4,21 @@
 DECLARE @Name NVARCHAR(32);
 	SET @Name = N'Dopis'
 
+DECLARE @FolderName NVARCHAR(50);
+	SET @FolderName = N'Companies';
+
+DECLARE @LangCode NVARCHAR(256);
+	SET @LangCode = N'cs';
+	
+DECLARE @Namespace NVARCHAR(256);
+	SET @Namespace = N'urn:eway:document-schemas:export-wml-company';
+
+DECLARE @TransformationVersion INT
+	SET @TransformationVersion = 2; -- Only historical Proposals have version = 1, default is 2
+
+DECLARE @DuplicateToOtherLanguages INT
+	SET @DuplicateToOtherLanguages = 0	-- Set to 1 if you want to copy the same definition to other languages
+
 DECLARE @Definition NVARCHAR(MAX);
 	SET @Definition = N'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core" xmlns:aml="http://schemas.microsoft.com/aml/2001/core" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:wsp="http://schemas.microsoft.com/office/word/2003/wordml/sp2" xmlns:ns0="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:ns1="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:ns2="urn:eway:document-schemas:export-wml-company" xmlns:st1="urn:schemas-microsoft-com:office:smarttags">
@@ -939,57 +954,21 @@ DECLARE @Definition NVARCHAR(MAX);
       </w:p>
     </ns2:Company>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:CurrentUser">
-    <ns2:CurrentUser>
+  <xsl:template match="/ns2:Company/ns2:Address2City">
+    <ns2:Address2City>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
         <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
           <xsl:value-of select="." />
         </xsl:attribute>
       </xsl:for-each>
-      <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003379C1" wsp:rsidRDefault="00DD3FEE" wsp:rsidP="00D21C9B">
-        <w:pPr>
-          <w:rPr>
-            <w:color w:val="383838" />
-            <w:sz w:val="22" />
-            <w:sz-cs w:val="22" />
-            <w:lang w:val="CS" />
-          </w:rPr>
-        </w:pPr>
-        <xsl:apply-templates select="ns2:FileAs" />
-      </w:p>
-    </ns2:CurrentUser>
-  </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:CurrentUser/ns2:FileAs">
-    <ns2:FileAs>
-      <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r>
+      <w:r wsp:rsidR="003F1B57">
         <w:rPr>
           <w:color w:val="383838" />
           <w:sz w:val="22" />
           <w:sz-cs w:val="22" />
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:FileAs>
-  </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:CompanyName">
-    <ns2:CompanyName>
-      <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r wsp:rsidR="00DD3FEE">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:CompanyName>
+    </ns2:Address2City>
   </xsl:template>
   <xsl:template match="/ns2:Company/ns2:MyCompany[1]">
     <ns2:MyCompany>
@@ -1087,22 +1066,6 @@ DECLARE @Definition NVARCHAR(MAX);
       <xsl:apply-templates select="ns2:MyCompanyCity" />
     </ns2:MyCompany>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:MyCompany[3]/ns2:MyCompanyZip">
-    <ns2:MyCompanyZip>
-      <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r wsp:rsidR="007935AB">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:MyCompanyZip>
-  </xsl:template>
   <xsl:template match="/ns2:Company/ns2:MyCompany[3]/ns2:MyCompanyCity">
     <ns2:MyCompanyCity>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
@@ -1118,6 +1081,22 @@ DECLARE @Definition NVARCHAR(MAX);
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns2:MyCompanyCity>
+  </xsl:template>
+  <xsl:template match="/ns2:Company/ns2:MyCompany[3]/ns2:MyCompanyZip">
+    <ns2:MyCompanyZip>
+      <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="007935AB">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns2:MyCompanyZip>
   </xsl:template>
   <xsl:template match="/ns2:Company/ns2:MyCompany[4]">
     <ns2:MyCompany>
@@ -1171,37 +1150,41 @@ DECLARE @Definition NVARCHAR(MAX);
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns2:MyCompanyVatNumber>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:IdentificationNumber">
-    <ns2:IdentificationNumber>
+  <xsl:template match="/ns2:Company/ns2:CurrentUser">
+    <ns2:CurrentUser>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
         <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
           <xsl:value-of select="." />
         </xsl:attribute>
       </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:IdentificationNumber>
+      <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003379C1" wsp:rsidRDefault="00DD3FEE" wsp:rsidP="00D21C9B">
+        <w:pPr>
+          <w:rPr>
+            <w:color w:val="383838" />
+            <w:sz w:val="22" />
+            <w:sz-cs w:val="22" />
+            <w:lang w:val="CS" />
+          </w:rPr>
+        </w:pPr>
+        <xsl:apply-templates select="ns2:FileAs" />
+      </w:p>
+    </ns2:CurrentUser>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:VatNumber">
-    <ns2:VatNumber>
+  <xsl:template match="/ns2:Company/ns2:CurrentUser/ns2:FileAs">
+    <ns2:FileAs>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
         <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
           <xsl:value-of select="." />
         </xsl:attribute>
       </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
+      <w:r>
         <w:rPr>
           <w:color w:val="383838" />
           <w:sz w:val="22" />
           <w:sz-cs w:val="22" />
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:VatNumber>
+    </ns2:FileAs>
   </xsl:template>
   <xsl:template match="/ns2:Company/ns2:Address2Street">
     <ns2:Address2Street>
@@ -1219,21 +1202,21 @@ DECLARE @Definition NVARCHAR(MAX);
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns2:Address2Street>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:Address2City">
-    <ns2:Address2City>
+  <xsl:template match="/ns2:Company/ns2:IdentificationNumber">
+    <ns2:IdentificationNumber>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
         <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
           <xsl:value-of select="." />
         </xsl:attribute>
       </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57">
+      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
         <w:rPr>
           <w:color w:val="383838" />
           <w:sz w:val="22" />
           <w:sz-cs w:val="22" />
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:Address2City>
+    </ns2:IdentificationNumber>
   </xsl:template>
   <xsl:template match="/ns2:Company/ns2:Address2PostalCode">
     <ns2:Address2PostalCode>
@@ -1251,48 +1234,73 @@ DECLARE @Definition NVARCHAR(MAX);
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns2:Address2PostalCode>
   </xsl:template>
+  <xsl:template match="/ns2:Company/ns2:VatNumber">
+    <ns2:VatNumber>
+      <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns2:VatNumber>
+  </xsl:template>
+  <xsl:template match="/ns2:Company/ns2:CompanyName">
+    <ns2:CompanyName>
+      <xsl:for-each select="@ns2:*|@*[namespace-uri()='''']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="00DD3FEE">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns2:CompanyName>
+  </xsl:template>
 </xsl:stylesheet>';
 
-DECLARE @FolderName NVARCHAR(50);
-	SET @FolderName = N'Companies';
-
-DECLARE @LangCode NVARCHAR(256);
-	SET @LangCode = N'cs';
-	
-DECLARE @Namespace NVARCHAR(256);
-	SET @Namespace = N'urn:eway:document-schemas:export-wml-company';
 /**********************************************/
 
-IF (len(@Name) = 0)
+IF (LEN(@Name) = 0)
 BEGIN
 	RAISERROR('You must set name of a new XSLT transformation', 16, 2);
 	RETURN;
 END
 
-IF (len(@Definition) = 0)
+IF (LEN(@Definition) = 0)
 BEGIN
 	RAISERROR('You must set definition of a new XSLT transformation', 16, 2);
 	RETURN;
 END
 
+IF (@TransformationVersion IS NULL)
+BEGIN
+	RAISERROR('You must set version of a new XSLT transformation', 16, 2);
+	RETURN;
+END
+
 DECLARE @AdminGUID UNIQUEIDENTIFIER;
-	SET @AdminGUID  = (SELECT ItemGUID FROM EWD_Users WHERE UserName = 'Admin');
+	SET @AdminGUID  = (SELECT ItemGUID FROM EWD_Users WHERE UserName = 'admin');
 
 DECLARE @ChangedTime DATETIME;
-	SET @ChangedTime = GetDate();
+	SET @ChangedTime = GETDATE();
 
 DECLARE @ObjectTypeID TINYINT;
-	SET @ObjectTypeID = 
-		(
-			SELECT ObjectTypeID 
-			FROM EWE_ObjectTypes 
-			WHERE FolderName = @FolderName
-		);
+	SET @ObjectTypeID = dbo.GetObjectTypeID(@FolderName);
 
-DECLARE @xsltGUID AS UNIQUEIDENTIFIER;
-	SET @xsltGUID  = (SELECT ItemGUID FROM EWD_XsltTransformations WHERE FileAs = @Name AND ObjectTypeID = @ObjectTypeID AND LangCode = @LangCode);
+DECLARE @XsltGUID AS UNIQUEIDENTIFIER;
+	SET @XsltGUID = (SELECT ItemGUID FROM EWD_XsltTransformations WHERE FileAs = @Name AND ObjectTypeID = @ObjectTypeID AND LangCode = @LangCode);
 
-IF (@xsltGUID IS NULL)
+IF (@XsltGUID IS NULL)
 BEGIN
 	-- INSERT
 	IF (@ObjectTypeID IS NULL)
@@ -1301,13 +1309,16 @@ BEGIN
 		RETURN;
 	END
 
-	IF (@LangCode <> 'en' AND @LangCode <> 'cs')
+	IF NOT EXISTS(SELECT 1 WHERE @LangCode IN ('en', 'cs', 'de', 'ru', 'sk', 'no'))
 	BEGIN
-		RAISERROR('Language must be ''en'' or ''cs''.', 16, 2);
+		DECLARE @Message VARCHAR(64)
+			SET @Message = 'Language must be one from values en, cs, de, ru, sk, no.'
+
+		RAISERROR(@Message, 16, 2);
 		RETURN;
 	END
 	
-	SET @xsltGUID = NewID();
+	SET @XsltGUID = NEWID();
 
 	INSERT INTO	EWD_XsltTransformations 
 		(
@@ -1324,24 +1335,26 @@ BEGIN
 			Definition,
 			FileAs,
 			LangCode,
-			Namespace
+			Namespace,
+			TransformationVersion
 		)
 	VALUES
 		(
-			@xsltGUID
-			, 1
-			, @AdminGUID
-			, @AdminGUID
-			, @AdminGUID
-			, @ChangedTime
-			, @ChangedTime
-			, @ChangedTime
-			, @ChangedTime
-			, @ObjectTypeID
-			, @Definition
-			, @Name
-			, @LangCode
-			, @Namespace
+			@XsltGUID, 
+			1, 
+			@AdminGUID, 
+			@AdminGUID, 
+			@AdminGUID, 
+			@ChangedTime, 
+			@ChangedTime, 
+			@ChangedTime, 
+			@ChangedTime, 
+			@ObjectTypeID, 
+			@Definition, 
+			@Name, 
+			@LangCode, 
+			@Namespace, 
+			@TransformationVersion
 		);
 		
 	PRINT 'Inserted succesfully'
@@ -1351,20 +1364,26 @@ BEGIN
 	-- UPDATE
 	
 	UPDATE EWD_XsltTransformations
-	SET	[ItemVersion]		= [ItemVersion] + 1
-		,[ModifiedByGUID]	= @AdminGUID
-		,[ItemChanged]		= @ChangedTime
-		,[Server_ItemChanged] = @ChangedTime
-		,[Definition] = @Definition
-		,[Namespace] = @Namespace
-		,[LangCode] = @LangCode
-	WHERE ItemGUID = @xsltGUID;
+	SET	[ItemVersion] = [ItemVersion] + 1,
+		[ModifiedByGUID] = @AdminGUID,
+		[ItemChanged] = @ChangedTime,
+		[Server_ItemChanged] = @ChangedTime,
+		[Definition] = @Definition,
+		[Namespace] = @Namespace,
+		[LangCode] = @LangCode,
+		[TransformationVersion] = @TransformationVersion
+	WHERE ItemGUID = @XsltGUID;
 	
 	PRINT 'Updated succesfully'
 END
 
 -- Mark change
-EXEC eWaySP_InsertIntoItemChanges @xsltGUID, 'XsltTransformations', 0
+EXEC eWaySP_InsertIntoItemChanges @XsltGUID, 'XsltTransformations', 0
+
+IF @DuplicateToOtherLanguages = 1
+BEGIN
+	EXEC eWaySP_DuplicateXsltTransformationToOtherLanguages @Name, @LangCode, @FolderName, 1
+END
 
 END_SETUP:
 

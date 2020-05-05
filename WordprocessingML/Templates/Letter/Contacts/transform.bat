@@ -1,5 +1,3 @@
-..\..\bin\WML2XSLT.EXE Dopis.xml -v -ns urn:eway:document-schemas:export-wml-contact -o Dopis.xsl
-..\..\bin\WML2XSLT.EXE Letter.xml -v -ns urn:eway:document-schemas:export-wml-contact -o Letter.xsl
-..\..\bin\WML2XSLT.EXE Letter_no.xml -v -ns urn:eway:document-schemas:export-wml-contact -o Letter.xsl
-
-PAUSE
+..\..\..\bin\Wml2Ew.exe "Dopis.xml" "urn:eway:document-schemas:export-wml-contact" "Dopis" "Contacts" "cs" "2" "0"
+..\..\..\bin\Wml2Ew.exe "Letter.xml" "urn:eway:document-schemas:export-wml-contact" "Letter" "Contacts" "en" "2" "0"
+..\..\..\bin\Wml2Ew.exe "Letter_no.xml" "urn:eway:document-schemas:export-wml-contact" "Brev" "Contacts" "no" "2" "0"

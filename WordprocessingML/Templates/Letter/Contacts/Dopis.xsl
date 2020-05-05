@@ -920,6 +920,22 @@
       </w:p>
     </ns4:Contact>
   </xsl:template>
+  <xsl:template match="/ns4:Contact/ns4:BusinessAddressPostalCode">
+    <ns4:BusinessAddressPostalCode>
+      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="003F1B57">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns4:BusinessAddressPostalCode>
+  </xsl:template>
   <xsl:template match="/ns4:Contact/ns4:MyCompany[1]">
     <ns4:MyCompany>
       <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
@@ -1020,22 +1036,6 @@
       </w:p>
     </ns4:MyCompany>
   </xsl:template>
-  <xsl:template match="/ns4:Contact/ns4:MyCompany[3]/ns4:MyCompanyZip">
-    <ns4:MyCompanyZip>
-      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r wsp:rsidR="007935AB">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns4:MyCompanyZip>
-  </xsl:template>
   <xsl:template match="/ns4:Contact/ns4:MyCompany[3]/ns4:MyCompanyCity">
     <ns4:MyCompanyCity>
       <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
@@ -1051,6 +1051,22 @@
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns4:MyCompanyCity>
+  </xsl:template>
+  <xsl:template match="/ns4:Contact/ns4:MyCompany[3]/ns4:MyCompanyZip">
+    <ns4:MyCompanyZip>
+      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="007935AB">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns4:MyCompanyZip>
   </xsl:template>
   <xsl:template match="/ns4:Contact/ns4:MyCompany[4]">
     <ns4:MyCompany>
@@ -1103,6 +1119,58 @@
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns4:MyCompanyVatNumber>
+  </xsl:template>
+  <xsl:template match="/ns4:Contact/ns4:BusinessAddressCity">
+    <ns4:BusinessAddressCity>
+      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="003F1B57">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns4:BusinessAddressCity>
+  </xsl:template>
+  <xsl:template match="/ns4:Contact/ns4:BusinessAddressStreet">
+    <ns4:BusinessAddressStreet>
+      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns4:BusinessAddressStreet>
+  </xsl:template>
+  <xsl:template match="/ns4:Contact/ns4:CurrentUser">
+    <ns4:CurrentUser>
+      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003379C1" wsp:rsidRDefault="00A87BBC" wsp:rsidP="00D21C9B">
+        <w:pPr>
+          <w:rPr>
+            <w:color w:val="383838" />
+            <w:sz w:val="22" />
+            <w:sz-cs w:val="22" />
+            <w:lang w:val="CS" />
+          </w:rPr>
+        </w:pPr>
+        <xsl:apply-templates select="ns4:FileAs" />
+      </w:p>
+    </ns4:CurrentUser>
   </xsl:template>
   <xsl:template match="/ns4:Contact/ns4:Company[1]">
     <ns4:Company>
@@ -1191,74 +1259,6 @@
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns4:VatNumber>
-  </xsl:template>
-  <xsl:template match="/ns4:Contact/ns4:BusinessAddressPostalCode">
-    <ns4:BusinessAddressPostalCode>
-      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns4:BusinessAddressPostalCode>
-  </xsl:template>
-  <xsl:template match="/ns4:Contact/ns4:BusinessAddressStreet">
-    <ns4:BusinessAddressStreet>
-      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns4:BusinessAddressStreet>
-  </xsl:template>
-  <xsl:template match="/ns4:Contact/ns4:BusinessAddressCity">
-    <ns4:BusinessAddressCity>
-      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns4:BusinessAddressCity>
-  </xsl:template>
-  <xsl:template match="/ns4:Contact/ns4:CurrentUser">
-    <ns4:CurrentUser>
-      <xsl:for-each select="@ns4:*|@*[namespace-uri()='']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003379C1" wsp:rsidRDefault="00A87BBC" wsp:rsidP="00D21C9B">
-        <w:pPr>
-          <w:rPr>
-            <w:color w:val="383838" />
-            <w:sz w:val="22" />
-            <w:sz-cs w:val="22" />
-            <w:lang w:val="CS" />
-          </w:rPr>
-        </w:pPr>
-        <xsl:apply-templates select="ns4:FileAs" />
-      </w:p>
-    </ns4:CurrentUser>
   </xsl:template>
   <xsl:template match="/ns4:Contact/ns4:CurrentUser/ns4:FileAs|/ns4:Contact/ns4:FileAs">
     <ns4:FileAs>

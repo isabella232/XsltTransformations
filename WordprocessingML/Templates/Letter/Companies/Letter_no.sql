@@ -4,6 +4,21 @@
 DECLARE @Name NVARCHAR(32);
 	SET @Name = N'Brev'
 
+DECLARE @FolderName NVARCHAR(50);
+	SET @FolderName = N'Companies';
+
+DECLARE @LangCode NVARCHAR(256);
+	SET @LangCode = N'no';
+	
+DECLARE @Namespace NVARCHAR(256);
+	SET @Namespace = N'urn:eway:document-schemas:export-wml-company';
+
+DECLARE @TransformationVersion INT
+	SET @TransformationVersion = 2; -- Only historical Proposals have version = 1, default is 2
+
+DECLARE @DuplicateToOtherLanguages INT
+	SET @DuplicateToOtherLanguages = 0	-- Set to 1 if you want to copy the same definition to other languages
+
 DECLARE @Definition NVARCHAR(MAX);
 	SET @Definition = N'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core" xmlns:aml="http://schemas.microsoft.com/aml/2001/core" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:wsp="http://schemas.microsoft.com/office/word/2003/wordml/sp2" xmlns:ns0="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:ns8="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:ns13="urn:eway:document-schemas:export-wml-company">
@@ -18,16 +33,16 @@ DECLARE @Definition NVARCHAR(MAX);
         <o:Title>Brev </o:Title>
         <o:Author>Jan Lalinský</o:Author>
         <o:LastAuthor>jkorpasova</o:LastAuthor>
-        <o:Revision>3</o:Revision>
+        <o:Revision>4</o:Revision>
         <o:TotalTime>11</o:TotalTime>
         <o:Created>2017-05-02T10:21:00Z</o:Created>
-        <o:LastSaved>2017-05-02T12:48:00Z</o:LastSaved>
+        <o:LastSaved>2017-05-02T13:29:00Z</o:LastSaved>
         <o:Pages>1</o:Pages>
         <o:Words>42</o:Words>
-        <o:Characters>251</o:Characters>
+        <o:Characters>252</o:Characters>
         <o:Lines>2</o:Lines>
         <o:Paragraphs>1</o:Paragraphs>
-        <o:CharactersWithSpaces>292</o:CharactersWithSpaces>
+        <o:CharactersWithSpaces>293</o:CharactersWithSpaces>
         <o:Version>11.0000</o:Version>
       </o:DocumentProperties>
       <w:fonts>
@@ -210,7 +225,7 @@ DECLARE @Definition NVARCHAR(MAX);
         </w:style>
       </w:styles>
       <w:shapeDefaults>
-        <o:shapedefaults v:ext="edit" spidmax="3074" />
+        <o:shapedefaults v:ext="edit" spidmax="4098" />
         <o:shapelayout v:ext="edit">
           <o:idmap v:ext="edit" data="1" />
         </o:shapelayout>
@@ -231,14 +246,14 @@ DECLARE @Definition NVARCHAR(MAX);
         <w:alwaysShowPlaceholderText />
         <w:footnotePr>
           <w:footnote w:type="separator">
-            <w:p wsp:rsidR="00514C78" wsp:rsidRDefault="00514C78" wsp:rsidP="00553DEF">
+            <w:p wsp:rsidR="00336731" wsp:rsidRDefault="00336731" wsp:rsidP="00553DEF">
               <w:r>
                 <w:separator />
               </w:r>
             </w:p>
           </w:footnote>
           <w:footnote w:type="continuation-separator">
-            <w:p wsp:rsidR="00514C78" wsp:rsidRDefault="00514C78" wsp:rsidP="00553DEF">
+            <w:p wsp:rsidR="00336731" wsp:rsidRDefault="00336731" wsp:rsidP="00553DEF">
               <w:r>
                 <w:continuationSeparator />
               </w:r>
@@ -247,14 +262,14 @@ DECLARE @Definition NVARCHAR(MAX);
         </w:footnotePr>
         <w:endnotePr>
           <w:endnote w:type="separator">
-            <w:p wsp:rsidR="00514C78" wsp:rsidRDefault="00514C78" wsp:rsidP="00553DEF">
+            <w:p wsp:rsidR="00336731" wsp:rsidRDefault="00336731" wsp:rsidP="00553DEF">
               <w:r>
                 <w:separator />
               </w:r>
             </w:p>
           </w:endnote>
           <w:endnote w:type="continuation-separator">
-            <w:p wsp:rsidR="00514C78" wsp:rsidRDefault="00514C78" wsp:rsidP="00553DEF">
+            <w:p wsp:rsidR="00336731" wsp:rsidRDefault="00336731" wsp:rsidP="00553DEF">
               <w:r>
                 <w:continuationSeparator />
               </w:r>
@@ -286,6 +301,8 @@ DECLARE @Definition NVARCHAR(MAX);
           <wsp:rsid wsp:val="00210F6E" />
           <wsp:rsid wsp:val="002548F2" />
           <wsp:rsid wsp:val="002C51D9" />
+          <wsp:rsid wsp:val="00336731" />
+          <wsp:rsid wsp:val="003375BE" />
           <wsp:rsid wsp:val="003379C1" />
           <wsp:rsid wsp:val="00353984" />
           <wsp:rsid wsp:val="003615F8" />
@@ -376,6 +393,7 @@ DECLARE @Definition NVARCHAR(MAX);
           <wsp:rsid wsp:val="00FA0E72" />
           <wsp:rsid wsp:val="00FA3487" />
           <wsp:rsid wsp:val="00FB2DE6" />
+          <wsp:rsid wsp:val="00FC4CE7" />
           <wsp:rsid wsp:val="00FD1AC8" />
           <wsp:rsid wsp:val="00FF2518" />
         </wsp:rsids>
@@ -426,7 +444,7 @@ DECLARE @Definition NVARCHAR(MAX);
                 <wx:borders>
                   <wx:top wx:val="solid" wx:bdrwidth="10" wx:space="1" wx:color="1F497D" />
                 </wx:borders>
-                <w:p wsp:rsidR="00553DEF" wsp:rsidRPr="00553DEF" wsp:rsidRDefault="00677DFB" wsp:rsidP="003379C1">
+                <w:p wsp:rsidR="00553DEF" wsp:rsidRPr="00553DEF" wsp:rsidRDefault="003375BE" wsp:rsidP="003379C1">
                   <w:pPr>
                     <w:pStyle w:val="Zpat" />
                     <w:pBdr>
@@ -468,7 +486,7 @@ DECLARE @Definition NVARCHAR(MAX);
                     </w:rPr>
                     <w:fldChar w:fldCharType="separate" />
                   </w:r>
-                  <w:r wsp:rsidR="009F6EFA">
+                  <w:r wsp:rsidR="00FC4CE7">
                     <w:rPr>
                       <w:noProof />
                       <w:color w:val="383838" />
@@ -515,7 +533,7 @@ DECLARE @Definition NVARCHAR(MAX);
                     </w:rPr>
                     <w:fldChar w:fldCharType="separate" />
                   </w:r>
-                  <w:r wsp:rsidR="008A12B8">
+                  <w:r wsp:rsidR="00FC4CE7">
                     <w:rPr>
                       <w:noProof />
                       <w:color w:val="383838" />
@@ -716,7 +734,7 @@ DECLARE @Definition NVARCHAR(MAX);
               <w:tcW w:w="5366" w:type="dxa" />
               <w:shd w:val="clear" w:color="auto" w:fill="auto" />
             </w:tcPr>
-            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="009F6EFA" wsp:rsidP="003379C1">
+            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="003375BE" wsp:rsidP="003379C1">
               <w:pPr>
                 <w:ind w:left="720" w:hanging="720" />
                 <w:rPr>
@@ -726,7 +744,7 @@ DECLARE @Definition NVARCHAR(MAX);
                 </w:rPr>
               </w:pPr>
               <xsl:apply-templates select="ns13:CurrentUser" />
-              <w:r>
+              <w:r wsp:rsidR="009F6EFA">
                 <w:rPr>
                   <w:color w:val="383838" />
                   <w:sz w:val="22" />
@@ -760,7 +778,7 @@ DECLARE @Definition NVARCHAR(MAX);
               <w:tcW w:w="5366" w:type="dxa" />
               <w:shd w:val="clear" w:color="auto" w:fill="auto" />
             </w:tcPr>
-            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="009F6EFA" wsp:rsidP="002548F2">
+            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="003375BE" wsp:rsidP="002548F2">
               <w:pPr>
                 <w:rPr>
                   <w:color w:val="383838" />
@@ -769,7 +787,7 @@ DECLARE @Definition NVARCHAR(MAX);
                 </w:rPr>
               </w:pPr>
               <xsl:apply-templates select="ns13:MyCompany[1]" />
-              <w:r>
+              <w:r wsp:rsidR="009F6EFA">
                 <w:rPr>
                   <w:color w:val="383838" />
                   <w:sz w:val="22" />
@@ -782,7 +800,7 @@ DECLARE @Definition NVARCHAR(MAX);
               <w:tcW w:w="5366" w:type="dxa" />
               <w:shd w:val="clear" w:color="auto" w:fill="auto" />
             </w:tcPr>
-            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="009F6EFA" wsp:rsidP="002548F2">
+            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="003375BE" wsp:rsidP="002548F2">
               <w:pPr>
                 <w:rPr>
                   <w:color w:val="383838" />
@@ -791,7 +809,7 @@ DECLARE @Definition NVARCHAR(MAX);
                 </w:rPr>
               </w:pPr>
               <xsl:apply-templates select="ns13:CompanyName" />
-              <w:r>
+              <w:r wsp:rsidR="009F6EFA">
                 <w:rPr>
                   <w:color w:val="383838" />
                   <w:sz w:val="22" />
@@ -809,7 +827,7 @@ DECLARE @Definition NVARCHAR(MAX);
               <w:tcW w:w="5366" w:type="dxa" />
               <w:shd w:val="clear" w:color="auto" w:fill="auto" />
             </w:tcPr>
-            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="009F6EFA" wsp:rsidP="002548F2">
+            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="003375BE" wsp:rsidP="002548F2">
               <w:pPr>
                 <w:rPr>
                   <w:color w:val="383838" />
@@ -818,7 +836,7 @@ DECLARE @Definition NVARCHAR(MAX);
                 </w:rPr>
               </w:pPr>
               <xsl:apply-templates select="ns13:MyCompany[2]" />
-              <w:r>
+              <w:r wsp:rsidR="009F6EFA">
                 <w:rPr>
                   <w:color w:val="383838" />
                   <w:sz w:val="22" />
@@ -831,7 +849,7 @@ DECLARE @Definition NVARCHAR(MAX);
               <w:tcW w:w="5366" w:type="dxa" />
               <w:shd w:val="clear" w:color="auto" w:fill="auto" />
             </w:tcPr>
-            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="009F6EFA" wsp:rsidP="002548F2">
+            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="003375BE" wsp:rsidP="002548F2">
               <w:pPr>
                 <w:rPr>
                   <w:color w:val="383838" />
@@ -840,7 +858,7 @@ DECLARE @Definition NVARCHAR(MAX);
                 </w:rPr>
               </w:pPr>
               <xsl:apply-templates select="ns13:Address2Street" />
-              <w:r>
+              <w:r wsp:rsidR="009F6EFA">
                 <w:rPr>
                   <w:color w:val="383838" />
                   <w:sz w:val="22" />
@@ -858,7 +876,7 @@ DECLARE @Definition NVARCHAR(MAX);
               <w:tcW w:w="5366" w:type="dxa" />
               <w:shd w:val="clear" w:color="auto" w:fill="auto" />
             </w:tcPr>
-            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="009F6EFA" wsp:rsidP="009A5066">
+            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="003375BE" wsp:rsidP="009A5066">
               <w:pPr>
                 <w:rPr>
                   <w:color w:val="383838" />
@@ -881,7 +899,7 @@ DECLARE @Definition NVARCHAR(MAX);
               <w:tcW w:w="5366" w:type="dxa" />
               <w:shd w:val="clear" w:color="auto" w:fill="auto" />
             </w:tcPr>
-            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="009F6EFA" wsp:rsidP="009A5066">
+            <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="003375BE" wsp:rsidP="009A5066">
               <w:pPr>
                 <w:rPr>
                   <w:color w:val="383838" />
@@ -889,7 +907,14 @@ DECLARE @Definition NVARCHAR(MAX);
                   <w:sz-cs w:val="22" />
                 </w:rPr>
               </w:pPr>
-              <xsl:apply-templates select="ns13:Address2PostalCode|ns13:Address2City" />
+              <xsl:apply-templates select="ns13:Address2PostalCode" />
+              <w:r wsp:rsidR="00FC4CE7">
+                <w:rPr>
+                  <w:color w:val="383838" />
+                  <w:sz w:val="22" />
+                  <w:sz-cs w:val="22" />
+                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+              <xsl:apply-templates select="ns13:Address2City" />
             </w:p>
           </w:tc>
         </w:tr>
@@ -1016,7 +1041,7 @@ DECLARE @Definition NVARCHAR(MAX);
           </w:tc>
         </w:tr>
       </w:tbl>
-      <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="009F6EFA" wsp:rsidP="00605CDA" />
+      <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003615F8" wsp:rsidRDefault="003375BE" wsp:rsidP="00605CDA" />
     </ns13:Company>
   </xsl:template>
   <xsl:template match="/ns13:Company/ns13:Address2PostalCode">
@@ -1286,46 +1311,39 @@ DECLARE @Definition NVARCHAR(MAX);
   </xsl:template>
 </xsl:stylesheet>';
 
-DECLARE @FolderName NVARCHAR(50);
-	SET @FolderName = N'Companies';
-
-DECLARE @LangCode NVARCHAR(256);
-	SET @LangCode = N'no';
-	
-DECLARE @Namespace NVARCHAR(256);
-	SET @Namespace = N'urn:eway:document-schemas:export-wml-company';
 /**********************************************/
 
-IF (len(@Name) = 0)
+IF (LEN(@Name) = 0)
 BEGIN
 	RAISERROR('You must set name of a new XSLT transformation', 16, 2);
 	RETURN;
 END
 
-IF (len(@Definition) = 0)
+IF (LEN(@Definition) = 0)
 BEGIN
 	RAISERROR('You must set definition of a new XSLT transformation', 16, 2);
 	RETURN;
 END
 
+IF (@TransformationVersion IS NULL)
+BEGIN
+	RAISERROR('You must set version of a new XSLT transformation', 16, 2);
+	RETURN;
+END
+
 DECLARE @AdminGUID UNIQUEIDENTIFIER;
-	SET @AdminGUID  = (SELECT ItemGUID FROM EWD_Users WHERE UserName = 'Admin');
+	SET @AdminGUID  = (SELECT ItemGUID FROM EWD_Users WHERE UserName = 'admin');
 
 DECLARE @ChangedTime DATETIME;
-	SET @ChangedTime = GetDate();
+	SET @ChangedTime = GETDATE();
 
 DECLARE @ObjectTypeID TINYINT;
-	SET @ObjectTypeID = 
-		(
-			SELECT ObjectTypeID 
-			FROM EWE_ObjectTypes 
-			WHERE FolderName = @FolderName
-		);
+	SET @ObjectTypeID = dbo.GetObjectTypeID(@FolderName);
 
-DECLARE @xsltGUID AS UNIQUEIDENTIFIER;
-	SET @xsltGUID  = (SELECT ItemGUID FROM EWD_XsltTransformations WHERE FileAs = @Name AND ObjectTypeID = @ObjectTypeID AND LangCode = @LangCode);
+DECLARE @XsltGUID AS UNIQUEIDENTIFIER;
+	SET @XsltGUID = (SELECT ItemGUID FROM EWD_XsltTransformations WHERE FileAs = @Name AND ObjectTypeID = @ObjectTypeID AND LangCode = @LangCode);
 
-IF (@xsltGUID IS NULL)
+IF (@XsltGUID IS NULL)
 BEGIN
 	-- INSERT
 	IF (@ObjectTypeID IS NULL)
@@ -1334,13 +1352,16 @@ BEGIN
 		RETURN;
 	END
 
-	IF (@LangCode <> 'en' AND @LangCode <> 'cs' AND @LangCode <> 'no')
+	IF NOT EXISTS(SELECT 1 WHERE @LangCode IN ('en', 'cs', 'de', 'ru', 'sk', 'no'))
 	BEGIN
-		RAISERROR('Language must be ''en'' or ''cs'' or ''no''.', 16, 2);
+		DECLARE @Message VARCHAR(64)
+			SET @Message = 'Language must be one from values en, cs, de, ru, sk, no.'
+
+		RAISERROR(@Message, 16, 2);
 		RETURN;
 	END
 	
-	SET @xsltGUID = NewID();
+	SET @XsltGUID = NEWID();
 
 	INSERT INTO	EWD_XsltTransformations 
 		(
@@ -1357,24 +1378,26 @@ BEGIN
 			Definition,
 			FileAs,
 			LangCode,
-			Namespace
+			Namespace,
+			TransformationVersion
 		)
 	VALUES
 		(
-			@xsltGUID
-			, 1
-			, @AdminGUID
-			, @AdminGUID
-			, @AdminGUID
-			, @ChangedTime
-			, @ChangedTime
-			, @ChangedTime
-			, @ChangedTime
-			, @ObjectTypeID
-			, @Definition
-			, @Name
-			, @LangCode
-			, @Namespace
+			@XsltGUID, 
+			1, 
+			@AdminGUID, 
+			@AdminGUID, 
+			@AdminGUID, 
+			@ChangedTime, 
+			@ChangedTime, 
+			@ChangedTime, 
+			@ChangedTime, 
+			@ObjectTypeID, 
+			@Definition, 
+			@Name, 
+			@LangCode, 
+			@Namespace, 
+			@TransformationVersion
 		);
 		
 	PRINT 'Inserted succesfully'
@@ -1384,20 +1407,26 @@ BEGIN
 	-- UPDATE
 	
 	UPDATE EWD_XsltTransformations
-	SET	[ItemVersion]		= [ItemVersion] + 1
-		,[ModifiedByGUID]	= @AdminGUID
-		,[ItemChanged]		= @ChangedTime
-		,[Server_ItemChanged] = @ChangedTime
-		,[Definition] = @Definition
-		,[Namespace] = @Namespace
-		,[LangCode] = @LangCode
-	WHERE ItemGUID = @xsltGUID;
+	SET	[ItemVersion] = [ItemVersion] + 1,
+		[ModifiedByGUID] = @AdminGUID,
+		[ItemChanged] = @ChangedTime,
+		[Server_ItemChanged] = @ChangedTime,
+		[Definition] = @Definition,
+		[Namespace] = @Namespace,
+		[LangCode] = @LangCode,
+		[TransformationVersion] = @TransformationVersion
+	WHERE ItemGUID = @XsltGUID;
 	
 	PRINT 'Updated succesfully'
 END
 
 -- Mark change
-EXEC eWaySP_InsertIntoItemChanges @xsltGUID, 'XsltTransformations', 0
+EXEC eWaySP_InsertIntoItemChanges @XsltGUID, 'XsltTransformations', 0
+
+IF @DuplicateToOtherLanguages = 1
+BEGIN
+	EXEC eWaySP_DuplicateXsltTransformationToOtherLanguages @Name, @LangCode, @FolderName, 1
+END
 
 END_SETUP:
 

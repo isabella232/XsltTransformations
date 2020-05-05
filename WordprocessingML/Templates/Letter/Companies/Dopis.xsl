@@ -932,57 +932,21 @@
       </w:p>
     </ns2:Company>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:CurrentUser">
-    <ns2:CurrentUser>
+  <xsl:template match="/ns2:Company/ns2:Address2City">
+    <ns2:Address2City>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
         <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
           <xsl:value-of select="." />
         </xsl:attribute>
       </xsl:for-each>
-      <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003379C1" wsp:rsidRDefault="00DD3FEE" wsp:rsidP="00D21C9B">
-        <w:pPr>
-          <w:rPr>
-            <w:color w:val="383838" />
-            <w:sz w:val="22" />
-            <w:sz-cs w:val="22" />
-            <w:lang w:val="CS" />
-          </w:rPr>
-        </w:pPr>
-        <xsl:apply-templates select="ns2:FileAs" />
-      </w:p>
-    </ns2:CurrentUser>
-  </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:CurrentUser/ns2:FileAs">
-    <ns2:FileAs>
-      <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r>
+      <w:r wsp:rsidR="003F1B57">
         <w:rPr>
           <w:color w:val="383838" />
           <w:sz w:val="22" />
           <w:sz-cs w:val="22" />
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:FileAs>
-  </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:CompanyName">
-    <ns2:CompanyName>
-      <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r wsp:rsidR="00DD3FEE">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:CompanyName>
+    </ns2:Address2City>
   </xsl:template>
   <xsl:template match="/ns2:Company/ns2:MyCompany[1]">
     <ns2:MyCompany>
@@ -1080,22 +1044,6 @@
       <xsl:apply-templates select="ns2:MyCompanyCity" />
     </ns2:MyCompany>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:MyCompany[3]/ns2:MyCompanyZip">
-    <ns2:MyCompanyZip>
-      <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
-        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
-          <xsl:value-of select="." />
-        </xsl:attribute>
-      </xsl:for-each>
-      <w:r wsp:rsidR="007935AB">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:MyCompanyZip>
-  </xsl:template>
   <xsl:template match="/ns2:Company/ns2:MyCompany[3]/ns2:MyCompanyCity">
     <ns2:MyCompanyCity>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
@@ -1111,6 +1059,22 @@
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns2:MyCompanyCity>
+  </xsl:template>
+  <xsl:template match="/ns2:Company/ns2:MyCompany[3]/ns2:MyCompanyZip">
+    <ns2:MyCompanyZip>
+      <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="007935AB">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns2:MyCompanyZip>
   </xsl:template>
   <xsl:template match="/ns2:Company/ns2:MyCompany[4]">
     <ns2:MyCompany>
@@ -1164,37 +1128,41 @@
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns2:MyCompanyVatNumber>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:IdentificationNumber">
-    <ns2:IdentificationNumber>
+  <xsl:template match="/ns2:Company/ns2:CurrentUser">
+    <ns2:CurrentUser>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
         <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
           <xsl:value-of select="." />
         </xsl:attribute>
       </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
-        <w:rPr>
-          <w:color w:val="383838" />
-          <w:sz w:val="22" />
-          <w:sz-cs w:val="22" />
-          <w:lang w:val="CS" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:IdentificationNumber>
+      <w:p wsp:rsidR="002548F2" wsp:rsidRPr="003379C1" wsp:rsidRDefault="00DD3FEE" wsp:rsidP="00D21C9B">
+        <w:pPr>
+          <w:rPr>
+            <w:color w:val="383838" />
+            <w:sz w:val="22" />
+            <w:sz-cs w:val="22" />
+            <w:lang w:val="CS" />
+          </w:rPr>
+        </w:pPr>
+        <xsl:apply-templates select="ns2:FileAs" />
+      </w:p>
+    </ns2:CurrentUser>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:VatNumber">
-    <ns2:VatNumber>
+  <xsl:template match="/ns2:Company/ns2:CurrentUser/ns2:FileAs">
+    <ns2:FileAs>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
         <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
           <xsl:value-of select="." />
         </xsl:attribute>
       </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
+      <w:r>
         <w:rPr>
           <w:color w:val="383838" />
           <w:sz w:val="22" />
           <w:sz-cs w:val="22" />
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:VatNumber>
+    </ns2:FileAs>
   </xsl:template>
   <xsl:template match="/ns2:Company/ns2:Address2Street">
     <ns2:Address2Street>
@@ -1212,21 +1180,21 @@
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns2:Address2Street>
   </xsl:template>
-  <xsl:template match="/ns2:Company/ns2:Address2City">
-    <ns2:Address2City>
+  <xsl:template match="/ns2:Company/ns2:IdentificationNumber">
+    <ns2:IdentificationNumber>
       <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
         <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
           <xsl:value-of select="." />
         </xsl:attribute>
       </xsl:for-each>
-      <w:r wsp:rsidR="003F1B57">
+      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
         <w:rPr>
           <w:color w:val="383838" />
           <w:sz w:val="22" />
           <w:sz-cs w:val="22" />
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
-    </ns2:Address2City>
+    </ns2:IdentificationNumber>
   </xsl:template>
   <xsl:template match="/ns2:Company/ns2:Address2PostalCode">
     <ns2:Address2PostalCode>
@@ -1243,5 +1211,37 @@
           <w:lang w:val="CS" />
         </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
     </ns2:Address2PostalCode>
+  </xsl:template>
+  <xsl:template match="/ns2:Company/ns2:VatNumber">
+    <ns2:VatNumber>
+      <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="003F1B57" wsp:rsidRPr="007935AB">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns2:VatNumber>
+  </xsl:template>
+  <xsl:template match="/ns2:Company/ns2:CompanyName">
+    <ns2:CompanyName>
+      <xsl:for-each select="@ns2:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:r wsp:rsidR="00DD3FEE">
+        <w:rPr>
+          <w:color w:val="383838" />
+          <w:sz w:val="22" />
+          <w:sz-cs w:val="22" />
+          <w:lang w:val="CS" />
+        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+    </ns2:CompanyName>
   </xsl:template>
 </xsl:stylesheet>
