@@ -291,7 +291,9 @@
               <xs:element name="MyCompanyCountry" type="xs:string" minOccurs="0" />
               <xs:element name="MyCompanyVatNumber" type="xs:string" minOccurs="0" />
               <xs:element name="MyCompanyZip" type="xs:string" minOccurs="0" />
-            </xs:choice>
+              <xs:element name="MyCompanyRegister" type="xs:string" minOccurs="0" />
+              <xs:element name="MyCompanyIDVAT" type="xs:string" minOccurs="0" />			  
+           </xs:choice>
           </xs:complexType>
         </xs:element>
         <xs:element name="Owner" minOccurs="0">
