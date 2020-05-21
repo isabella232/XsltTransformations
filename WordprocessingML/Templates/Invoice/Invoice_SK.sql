@@ -2,7 +2,7 @@
 
 /******* XSLT Transformation Insert **********/
 DECLARE @Name NVARCHAR(32);
-	SET @Name = N'Fakt├║ra'
+	SET @Name = N'Faktúra'
 
 DECLARE @FolderName NVARCHAR(50);
 	SET @FolderName = N'Carts';
