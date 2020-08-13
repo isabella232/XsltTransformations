@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="urn:eway:document-schemas:export-wml-lead-spower"
+<xs:schema targetNamespace="urn:eway:document-schemas:export-wml-lead"
     elementFormDefault="qualified"
-    xmlns="urn:eway:document-schemas:export-wml-lead-spower"
+    xmlns="urn:eway:document-schemas:export-wml-lead"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <!-- Do not edit this if you do not know what you are doing. -->
