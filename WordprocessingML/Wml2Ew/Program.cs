@@ -11,7 +11,7 @@ namespace Wml2Ew
     class Program
     {
         public static readonly List<string> LANGUAGES = new List<string> { "en", "cs", "de", "ru", "sk", "no" };
-        public static readonly List<string> SUPPORTED_FOLDERS = new List<string> { "Carts", "Companies", "Contacts", "Projects", "Leads" };
+        public static readonly List<string> SUPPORTED_FOLDERS = new List<string> { "Carts", "Companies", "Contacts", "Projects", "Leads", "Journal" };
 
         static void Main(string[] args)
         {
