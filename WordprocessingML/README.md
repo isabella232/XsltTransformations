@@ -3,7 +3,7 @@
 ## Prepare schema
 
 Schema defines what eWay-CRM data will be available in the template. eWay-CRM exports all available data from the appropriate
-items. If you have custom fields you will have to create custom schema and add required custom fields there. Create new folder in Transformations (in case of invoices in GIT Transformations\Proposal\Version2), copy Schema+transform files from one of the previous GIT folders into the created one.
+items. If you have custom fields you will have to create custom schema and add required custom fields there. Create new folder in your local Transformations directory (similar structure to what we have in Templates folder), copy Schema + transform files from one of the templates into the created one.
 
 See our schema for [Invoices](Templates/Invoice/Invoice.xsd) or use the custom schema you copied in previous action.
 If you for example have a custom field af_14 (your may use Alt + F1 shortcut on a control in eWay-CRM to get it's internal name) on Bookkeeping module, you may modify schema like this:
@@ -69,7 +69,7 @@ Default schemas are available [here](Schemas/).
 
 ## Create template
 
-Install Word 2003 Professional + SP3. It is recommended to have XML Structure pane visible (in Word 2003 right click on upper pane - Own - Commands - All commands - Show XML Structure).
+Install Word 2003 Professional with SP3. It is recommended to have XML Structure pane visible (in Word 2003 right click on upper pane - Own - Commands - All commands - Show XML Structure).
 
 Open Word 2003 with client's defined template (or create a new empty document).
 
@@ -106,7 +106,7 @@ applied you can remove the space.
 
 ![element-before-fix](Images/element-after-fix.png)
 
-Elements could be used only in template body (not in header/footer). For easier template editing it is possible to hide the elements by CTRL+SHIFT+X.
+Elements could be used only in template body (not in header / footer). For easier template editing it is possible to hide the elements by CTRL+SHIFT+X.
 
 ## Publish template
 
