@@ -2,7 +2,7 @@
 
 /******* XSLT Transformation Insert **********/
 DECLARE @Name NVARCHAR(32);
-	SET @Name = N'Completition Certificate'
+	SET @Name = N'Completion Certificate'
 
 DECLARE @FolderName NVARCHAR(50);
 	SET @FolderName = N'Projects';
