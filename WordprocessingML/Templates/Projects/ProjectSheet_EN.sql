@@ -8,7 +8,7 @@ DECLARE @FolderName NVARCHAR(50);
 	SET @FolderName = N'Projects';
 
 DECLARE @LangCode NVARCHAR(256);
-	SET @LangCode = N'cs';
+	SET @LangCode = N'en';
 	
 DECLARE @Namespace NVARCHAR(256);
 	SET @Namespace = N'urn:eway:document-schemas:export-wml-project';
