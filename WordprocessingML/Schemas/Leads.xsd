@@ -17,6 +17,7 @@
         <xs:element name="LeadOriginEn" type="xs:string" minOccurs="0" />
         <xs:element name="Email" type="xs:string" minOccurs="0" />
         <xs:element name="Price" type="xs:string" minOccurs="0" />
+        <xs:element name="PriceDefaultCurrency" type="xs:string" minOccurs="0" />
         <xs:element name="Phone" type="xs:string" minOccurs="0" />
         <xs:element name="Probability" type="xs:string" minOccurs="0" />
         <xs:element name="EstimatedEnd" type="xs:string" minOccurs="0" />
@@ -27,6 +28,7 @@
         <xs:element name="EstimatedMargin" type="xs:string" minOccurs="0" />
         <xs:element name="NextStep" type="xs:string" minOccurs="0" />
         <xs:element name="EstimatedValue" type="xs:string" minOccurs="0" />
+        <xs:element name="EstimatedValueDefaultCurrency" type="xs:string" minOccurs="0" />
         <xs:element name="EmailOptOut" type="xs:string" minOccurs="0" />
         <xs:element name="CountryEn" type="xs:string" minOccurs="0" />
         <xs:element name="State" type="xs:string" minOccurs="0" />
@@ -36,6 +38,7 @@
         <xs:element name="ItemChanged" type="xs:string" minOccurs="0" />
         <xs:element name="CustomerText" type="xs:string" minOccurs="0" />
         <xs:element name="ContactPersonText" type="xs:string" minOccurs="0" />
+        <xs:element name="CurrencyEn" type="xs:string" minOccurs="0" />
         <xs:element name="Owner" minOccurs="0">
           <xs:complexType>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
